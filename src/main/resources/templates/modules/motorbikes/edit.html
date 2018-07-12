@@ -1,0 +1,65 @@
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">Preferences</h1>
+	</div>
+	<!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row" ng-controller="MotorbikeController" ng-init="ctrl.editMotorbike()">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Motorbikes
+			</div>
+			<!-- /.panel-heading -->
+			<div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <div class="alert alert-success" role="alert" ng-if="ctrl.successMessage">{{ctrl.successMessage}}</div>
+                        <div class="alert alert-danger" role="alert" ng-if="ctrl.errorMessage">{{ctrl.errorMessage}}</div>   
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form role="form" name="myForm" ng-submit="ctrl.submit()">
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label class="col-md-2 control-lable" for="umodel">model</label>
+                                    <div class="col-md-7">
+                                        <input id="umodel" class="form-control input-sm" ng-model="ctrl.Motorbike.name" required ng-minlength="3" placeholder="Introduce el modelo">
+                                    </div>
+                                    <label class="col-md-2 control-lable" for="unumber">number</label>
+                                    <div class="col-md-7">
+                                        <input id="unumber" class="form-control input-sm" ng-model="ctrl.Motorbike.number" required ng-minlength="3" placeholder="Introduce el numero de matricula">
+                                    </div>
+                                    <label class="col-md-2 control-lable" for="ulatitude">latitude</label>
+                                    <div class="col-md-7">
+                                        <input id="ulatitude" class="form-control input-sm" ng-model="ctrl.Motorbike.latitude" required ng-minlength="3" placeholder="Introduce la latitud">
+                                    </div>
+                                    <label class="col-md-2 control-lable" for="ulongitude">longitude</label>
+                                    <div class="col-md-7">
+                                        <input id="ulongitude" class="form-control input-sm" ng-model="ctrl.Motorbike.longitude" required ng-minlength="3" placeholder="Introduce la longitud">
+                                    </div>
+                                    <label class="col-md-2 control-lable" for="ureserved">reserved</label>
+                                    <div class="col-md-7">
+                                        <input type="checkbox" id="ureserved" class="form-control input-sm" ng-model="ctrl.Motorbike.reserved" required ng-minlength="3" value="true">
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" class="form-control" ng-model="ctrl.Motorbike.id">
+                            <!-- Buttons -->
+                            <div class="row"></div>
+                                <div class="form-group col-md-12">
+                                    <div class="col-md-7 col-md-offset-2">
+                                        <input type="submit" class="btn btn-primary btn-sm" value="{{!ctrl.Motorbike.id ? 'Add' : 'Update'}}" ng-disabled="myForm.$invalid || myForm.$pristine" />
+                                        <button type="button" class="btn btn-warning btn-sm" ng-click="ctrl.reset()">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
